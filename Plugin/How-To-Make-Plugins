@@ -1,15 +1,22 @@
 Set Up Your Development Environment:
-Install the necessary tools: Git, CMake, and a suitable text editor (e.g., VSCode).
-Clone the Flipper Zero firmware repository from GitHub.
+Install Tools: Ensure you have Git, CMake, and a text editor like VSCode installed.
+Clone Repository: Open your terminal and run:
+git clone https://github.com/flipperdevices/flipperzero-firmware.git
+cd flipperzero-firmware
+
 Create a New Plugin Directory:
+Navigate to Directory: Go to the applications_user directory:
+cd applications_user
 
-Navigate to the applications_user directory within the firmware repository.
-Create a new directory for your plugin.
+Create Directory: Make a new directory for your plugin:
+mkdir my_plugin
+cd my_plugin
+
 Write Your Plugin Code:
+Create C File: Create a new C file, e.g., my_plugin.c:
+touch my_plugin.c
 
-Create a new C file for your plugin, e.g., my_plugin.c.
-Implement the necessary functions:
-
+Implement Functions: Add the following code to my_plugin.c:
 #include <furi.h>
 #include <gui/gui.h>
 
@@ -26,27 +33,27 @@ void my_plugin_exit() {
 }
 
 Modify the CMakeLists.txt:
-
-Add your plugin to the CMakeLists.txt file in the applications_user directory:
-
-add_application(my_plugin "my_plugin.c")
+Edit CMakeLists.txt: Open the CMakeLists.txt file in the applications_user directory and add your plugin:
+add_application(my_plugin "my_plugin/my_plugin.c")
 
 Build the Firmware:
-Navigate to the root directory of the firmware repository.
-Run the build command to compile the firmware with your new plugin:
+Navigate to Root Directory: Go back to the root directory of the firmware repository:
+cd ../..
 
+Run Build Command: Compile the firmware with your new plugin:
 ./fbt
 
 Flash the Firmware:
-
-Connect your Flipper Zero to your computer.
-Use the appropriate tool to flash the compiled firmware onto your device:
-
+Connect Device: Connect your Flipper Zero to your computer via USB.
+Flash Firmware: Use the following command to flash the compiled firmware onto your device:
 ./fbt flash
 
 Test Your Plugin:
-Navigate to the plugins menu on your Flipper Zero.
-Run your plugin to ensure it works as expected.
+Access Plugin: On your Flipper Zero, navigate to the plugins menu.
+Run Plugin: Select and run your plugin to ensure it works as expected.
 Debug and Iterate:
-Use debugging tools to identify and fix any issues.
-Iterate on your plugin to add features or improve performance.
+Debugging Tools: Use tools like GDB for debugging. You can set breakpoints and inspect variables to find issues.
+Iterate: Based on your testing, make improvements or add new features to your plugin. Update your code and repeat the build and flash steps as needed.
+Documentation and Sharing:
+Document Your Code: Add comments and documentation to your code to make it easier to understand and maintain.
+Share Your Plugin: If you want to share your plugin with the community, consider creating a GitHub repository and providing instructions on how to use it.
