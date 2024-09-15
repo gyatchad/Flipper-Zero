@@ -1,1 +1,52 @@
+Set Up Your Development Environment:
+Install the necessary tools: Git, CMake, and a suitable text editor (e.g., VSCode).
+Clone the Flipper Zero firmware repository from GitHub.
+Create a New Plugin Directory:
 
+Navigate to the applications_user directory within the firmware repository.
+Create a new directory for your plugin.
+Write Your Plugin Code:
+
+Create a new C file for your plugin, e.g., my_plugin.c.
+Implement the necessary functions:
+
+#include <furi.h>
+#include <gui/gui.h>
+
+void my_plugin_init() {
+    // Initialization code here
+}
+
+void my_plugin_task() {
+    // Main task code here
+}
+
+void my_plugin_exit() {
+    // Cleanup code here
+}
+
+Modify the CMakeLists.txt:
+
+Add your plugin to the CMakeLists.txt file in the applications_user directory:
+
+add_application(my_plugin "my_plugin.c")
+
+Build the Firmware:
+Navigate to the root directory of the firmware repository.
+Run the build command to compile the firmware with your new plugin:
+
+./fbt
+
+Flash the Firmware:
+
+Connect your Flipper Zero to your computer.
+Use the appropriate tool to flash the compiled firmware onto your device:
+
+./fbt flash
+
+Test Your Plugin:
+Navigate to the plugins menu on your Flipper Zero.
+Run your plugin to ensure it works as expected.
+Debug and Iterate:
+Use debugging tools to identify and fix any issues.
+Iterate on your plugin to add features or improve performance.
